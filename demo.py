@@ -28,6 +28,7 @@ if __name__ == "__main__":
   
   file=open('data/associate.txt')
   lines = file.read().split("/n")
+  print(len(lines))
   for i in range(len(lines)-1):
     # Read depth image and camera pose
     depth_file=base_dir+'/'+lines[i].split(" ")[2]
