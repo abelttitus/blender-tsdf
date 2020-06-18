@@ -31,7 +31,8 @@ if __name__ == "__main__":
   for i in range(len(lines)-1):
     # Read depth image and camera pose
     depth_file=base_dir+'/'+lines[i].split(" ")[2]
-    depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH).astype('float')
+    depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
+    depth_im=depth_im.astype(np.float)
     depth_im /= 5000.  # depth is saved in 16-bit PNG in millimeters
     cam_pose=cam_poses[4*i:4*(i+1),:]
 
@@ -60,7 +61,8 @@ if __name__ == "__main__":
 
      # Read RGB-D image and camera pose
     color_image = cv2.cvtColor(cv2.imread(rgb_file, cv2.COLOR_BGR2RGB)
-    depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH).astype('float')
+    depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
+    depth_im=depth_im.astype(np.float)
     depth_im /= 5000.
      #depth_im[depth_im == 65.535] = 0
     cam_pose=cam_poses[4*i:4*(i+1),:]
