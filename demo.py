@@ -62,7 +62,7 @@ if __name__ == "__main__":
     print("Fusing frame %d/%d"%(i+1, n_imgs))
 
       # Read RGB-D image and camera pose
-    color_image = cv2.cvtColor(cv2.imread(rgb_file) cv2.COLOR_BGR2RGB)
+    color_image = cv2.cvtColor(cv2.imread(rgb_file),cv2.COLOR_BGR2RGB)
     depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
     depth_im=depth_im.astype(np.float)
     depth_im /= 5000.
