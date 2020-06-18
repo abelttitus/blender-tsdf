@@ -27,7 +27,7 @@ if __name__ == "__main__":
   
   
   file=open('data/associate.txt')
-  lines = file.read().split("/n")
+  lines = file.read().split("\n")
   print "Number of lines in associate",len(lines)
   for i in range(len(lines)-1):
     # Read depth image and camera pose
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 #   t0_elapse = time.time()
  
 #   file=open('data/associate.txt')
-#   lines = file.read().split("/n")
+#   lines = file.read().split("\n")
 #   for i in range(len(lines)-1):
 #     rgb_file=base_dir+'/'+lines[i].split(" ")[1]
 #     depth_file=base_dir+'/'+lines[i].split(" ")[2]
