@@ -31,14 +31,20 @@ if __name__ == "__main__":
   for i in range(len(lines)-1):
     # Read depth image and camera pose
     depth_file=base_dir+'/'+lines[i].split(" ")[2]
+    print "Depth File",depth_file
     depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
     depth_im=depth_im.astype(np.float)
     depth_im /= 5000.  # depth is saved in 16-bit PNG in millimeters
+    
+    print "Depth Shape",depth_im.shape
+    print "Depth Max",np.max(depth_im)
+    print "Depth Min",np.min(depth_im)
     cam_pose=cam_poses[4*i:4*(i+1),:]
 
     view_frust_pts = fusion.get_view_frustum(depth_im, cam_intr, cam_pose)
     vol_bnds[:,0] = np.minimum(vol_bnds[:,0], np.amin(view_frust_pts, axis=1))
     vol_bnds[:,1] = np.maximum(vol_bnds[:,1], np.amax(view_frust_pts, axis=1))
+    break
   print "Volume Bounds:",vol_bnds
   file.close()
   # ======================================================================================================== #
