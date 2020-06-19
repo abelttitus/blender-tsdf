@@ -21,7 +21,7 @@ if __name__ == "__main__":
   
   cam_intr = np.loadtxt("data/camera-intrinsics.txt", delimiter=' ')
   print "Camera Intrinsics",cam_intr
-  cam_poses=np.loadtxt("data/gt_poses.txt")
+  cam_poses=np.loadtxt("data/gt_poses_new.txt")
   #print "Cam poses shape",cam_poses.shape
   vol_bnds = np.zeros((3,2))
   
