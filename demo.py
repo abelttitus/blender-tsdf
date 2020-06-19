@@ -36,7 +36,7 @@ if __name__ == "__main__":
     depth_im=depth_im.astype(np.float)
     depth_im /= 5000.  # depth is saved in 16-bit PNG in millimeters
     cam_pose=cam_poses[4*i:4*(i+1),:]
-    cam_pose=np.linalg.inv(cam_pose)
+
 
     view_frust_pts = fusion.get_view_frustum(depth_im, cam_intr, cam_pose)
     vol_bnds[:,0] = np.minimum(vol_bnds[:,0], np.amin(view_frust_pts, axis=1))
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     depth_im /= 5000.
       #depth_im[depth_im == 65.535] = 0
     cam_pose=cam_poses[4*i:4*(i+1),:]
-    cam_pose=np.linalg.inv(cam_pose)
+
 
       # Integrate observation into voxel volume (assume color aligned with depth)
     tsdf_vol.integrate(color_image, depth_im, cam_intr, cam_pose, obs_weight=1.)
