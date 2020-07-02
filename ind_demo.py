@@ -89,7 +89,7 @@ if __name__ == "__main__":
         color_image = cv2.cvtColor(cv2.imread(rgb_file),cv2.COLOR_BGR2RGB)
         color_image=(color_image*final_mask).astype(np.uint8)
         depth_im = cv2.imread(depth_file,cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
-        depth_im=(depth_im*final_mask).astype(np.float)
+        depth_im=(depth_im*final_mask[:,:,0]).astype(np.float)
         depth_im /= 5000.
           #depth_im[depth_im == 65.535] = 0
         img_no_int=int(img_no)
