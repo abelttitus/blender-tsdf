@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
 
   t0_elapse = time.time()
-  class_id=33 #ball
+  class_id=63 #ball
   file=open('data_table/associate.txt')
   lines = file.read().split("\n")
   for i in range(len(lines)-1):
@@ -106,9 +106,9 @@ if __name__ == "__main__":
 # Get mesh from voxel volume and save to disk (can be viewed with Meshlab)
   print("Saving mesh to mesh.ply...")
   verts, faces, norms, colors = tsdf_vol.get_mesh()
-  fusion.meshwrite("football.ply", verts, faces, norms, colors)
+  fusion.meshwrite("football-mesh.ply", verts, faces, norms, colors)
 
 # Get point cloud from voxel volume and save to disk (can be viewed with Meshlab)
   print("Saving point cloud to pc.ply...")
   point_cloud = tsdf_vol.get_point_cloud()
-  fusion.pcwrite("football.ply", point_cloud)
+  fusion.pcwrite("football-pcd.ply", point_cloud)
