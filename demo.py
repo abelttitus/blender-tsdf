@@ -16,17 +16,17 @@ if __name__ == "__main__":
   # frustums in the dataset
   # ======================================================================================================== #
   print("Estimating voxel volume bounds...")
-  n_imgs = 199
-  base_dir='/home/ashfaquekp/output'
+  n_imgs = 239
+  base_dir='/home/ashfaquekp/output_table'
   
-  cam_intr = np.loadtxt("data/camera-intrinsics.txt", delimiter=' ')
+  cam_intr = np.loadtxt("data_table/camera-intrinsics.txt", delimiter=' ')
   print "Camera Intrinsics",cam_intr
-  cam_poses=np.loadtxt("data/gt_poses_new.txt")
+  cam_poses=np.loadtxt("data_table/gt_poses_new.txt")
   #print "Cam poses shape",cam_poses.shape
   vol_bnds = np.zeros((3,2))
   
   
-  file=open('data/associate.txt')
+  file=open('data_table/associate.txt')
   lines = file.read().split("\n")
   print "Number of lines in associate",len(lines)
   for i in range(len(lines)-1):
@@ -55,7 +55,7 @@ if __name__ == "__main__":
 
   t0_elapse = time.time()
  
-  file=open('data/associate.txt')
+  file=open('data_table/associate.txt')
   lines = file.read().split("\n")
   for i in range(len(lines)-1):
     rgb_file=base_dir+'/'+lines[i].split(" ")[1]
@@ -81,9 +81,9 @@ if __name__ == "__main__":
 # Get mesh from voxel volume and save to disk (can be viewed with Meshlab)
   print("Saving mesh to mesh.ply...")
   verts, faces, norms, colors = tsdf_vol.get_mesh()
-  fusion.meshwrite("mesh-blender.ply", verts, faces, norms, colors)
+  fusion.meshwrite("mesh-blender-table.ply", verts, faces, norms, colors)
 
 # Get point cloud from voxel volume and save to disk (can be viewed with Meshlab)
   print("Saving point cloud to pc.ply...")
   point_cloud = tsdf_vol.get_point_cloud()
-  fusion.pcwrite("pc-blender.ply", point_cloud)
+  fusion.pcwrite("pc-blender-table.ply", point_cloud)
