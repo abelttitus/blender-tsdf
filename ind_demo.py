@@ -73,7 +73,7 @@ if __name__ == "__main__":
     mask_index_file=open(mask_dir+img_no+'.txt')
     mask_index_file_lines = mask_index_file.read().split("\n")
     for j in range(len(mask_index_file_lines)-1):
-        contents=mask_index_file_lines.split(" ")
+        contents=mask_index_file_lines[j].split(" ")
         if int(contents[0])!=class_id:
             continue
         flag=True
