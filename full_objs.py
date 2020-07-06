@@ -108,7 +108,7 @@ if __name__ == "__main__":
   verts, faces, norms, colors = tsdf_vol.get_mesh()
   fusion.meshwrite("all-objs.ply", verts, faces, norms, colors)
 
-# Get point cloud from voxel volume and save to disk (can be viewed with Meshlab)
-  print("Saving point cloud to pc.ply...")
-  point_cloud = tsdf_vol.get_point_cloud()
-  fusion.pcwrite("all-objs.ply", point_cloud)
+# # Get point cloud from voxel volume and save to disk (can be viewed with Meshlab)
+#   print("Saving point cloud to pc.ply...")
+#   point_cloud = tsdf_vol.get_point_cloud()
+#   fusion.pcwrite("all-objs.ply", point_cloud)
