@@ -59,7 +59,7 @@ if __name__ == "__main__":
   class_ids= [29,33,40,41,63]
   
   class_id=29
-  tsdf_vol = fusion.TSDFVolume(vol_bnds, voxel_size=0.005)
+  tsdf_vol = fusion.TSDFVolume(vol_bnds, voxel_size=0.01)
 
 
   t0_elapse = time.time()
