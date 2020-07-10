@@ -57,7 +57,7 @@ if __name__ == "__main__":
   # Initialize voxel volume
   print("Initializing voxel volume...")
   class_ids= [29,33,40,41,63]
-  
+  class_ids=[33]
   for index in range(len(class_ids)):
       tsdf_vol = fusion.TSDFVolume(vol_bnds, voxel_size=0.01)
     
