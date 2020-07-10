@@ -111,4 +111,4 @@ if __name__ == "__main__":
       print("Saving mesh to mesh.ply...")
       verts, faces, norms, colors = tsdf_vol.get_mesh()
       fusion.meshwrite(mesh_str+'.ply', verts, faces, norms, colors)
-      def tsdf_vol
+      del tsdf_vol
